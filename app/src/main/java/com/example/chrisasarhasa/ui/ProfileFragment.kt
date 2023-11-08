@@ -1,8 +1,6 @@
 package com.example.chrisasarhasa.ui
 
 import android.app.Activity
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,9 +20,6 @@ class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
     private lateinit var sharedPreferencesHelper: SharedPreferencesHelper
-    private var currentImageUri: Uri? = null
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,10 +75,6 @@ class ProfileFragment : Fragment() {
                 // Use the uri to load the image
                 // Only if you are not using crop feature:
                 // Grant persistable URI permission
-                requireContext().contentResolver.takePersistableUriPermission(
-                    uri,
-                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-                )
 
                 Glide.with(this)
                     .load(uri)
